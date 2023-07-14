@@ -1,0 +1,50 @@
+  
+{% extends 'base.html' %}
+{% load static %}
+{% block contenido %}
+{% load crispy_forms_tags %} 
+<div class="container mt-5">
+    <div class="text-center">
+        <h2 class="mt-4">Listado de Atenciones</h2>
+    </div>
+    
+    <h1 style="color:red"> {{mensaje}} </h1>
+    <div class="col-12" >
+
+        {% for a in Atencion %}
+        {% if a.Rechazada == null and a.Aceptada == null %}
+        <div class="col-3">
+        <div class="card" style="background-color: #182d38;  color: white; ">
+                <div class="image"><img src="{{a.foto.url}}" class="d-block w-100"  alt="..."></div>
+            <div class="card-body" style="background-color: #143e57;">
+                <p style="color :#2860fa;">
+                <span class="title">
+                    {{a.nombre}}
+                </span>
+                </p>
+            
+                <p class="desc">
+                    {{a.diagnóstico}}
+                </p>
+                <p class="desc">
+                    {{a.materiales}}
+                </p>
+                <p class="desc">
+                    <a href="{% url 'rechazo' a.numero %}" class="btn btn-danger btn-sm">Rechazar</a>
+                    <a href="{% url 'aprovado' a.numero %}" class="btn btn-info btn-sm">Aprovar</a>
+                </p>
+                
+             </div>
+        </div>
+        </div>
+        <br>
+        {% else %}
+                   
+        {% endif %}
+        {% endfor %}
+
+   </div>
+  </div>
+
+
+  {% endblock %}

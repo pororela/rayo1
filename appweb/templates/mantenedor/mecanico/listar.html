@@ -1,0 +1,41 @@
+  
+{% extends 'base.html' %}
+{% load static %}
+{% block contenido %}
+{% load crispy_forms_tags %} 
+<div class="container mt-5">
+    <div class="text-center">
+        <h2 class="mt-4">Listado de Mecanicos</h2>
+    </div>
+    
+    <h1 style="color:red"> {{mensaje}} </h1>
+    <div class="col-3" >
+
+        {% for a in profesionales %}
+        <div class="card" style="background-color: #182d38;  color: white; ">
+                <div class="image"><img src="{{a.foto.url}}" class="d-block w-100"  alt="..."></div>
+            <div class="card-body" style="background-color: #143e57;">
+                <p style="color :#2860fa;">
+                <span class="title">
+                    {{a.nombre}} {{a.apellido}}
+                </span>
+                </p>
+                <p class="desc">
+                    {{a.rut}}
+                </p>
+                <p class="desc">
+                    {{a.edad}}
+                </p>
+                <p class="desc">
+                    {{a.cargo}}
+                </p>
+             </div>
+        </div>
+        <br>
+        {% endfor %}
+
+   </div>
+  </div>
+
+
+  {% endblock %}

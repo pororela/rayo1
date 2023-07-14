@@ -1,0 +1,231 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contenido %}
+
+
+
+<div>
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button" style="background-color: #13405a; color: white;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Publicar atencion
+                </button>
+            </h2>
+            <div id="collapseOne" style="background-color: #0b4161; color: white;" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <form class="row" action="#" enctype="application/x-www-form-urlencoded" method="POST" id="Publicar_Atencion"novalidate>
+                    <div class="row">
+                      <div class="mb-3; col-6">
+                          <label for="nombre_mecanico" class="form-label">Nombre Mecanico</label>
+                          <input type="text" class="form-control"  id="nombre_mecanico" placeholder="">
+                      </div>
+                      <div class="mb-3; col-6">
+                        <label for="Apellido" class="form-label">Apellido Mecanico</label>
+                        <input type="text" class="form-control"  id="Apellido" placeholder="">
+                    </div>
+
+                      <div class="mb-3 col-3">
+                        <label for="fecha" class="form-label">fecha</label>
+                        <input type="date" class="form-control"  id="fecha" placeholder="">
+                    </div>
+
+                      <div class="mb-3">
+                        <label for="diagnóstico" class="form-label">diagnóstico</label>
+                        <textarea class="form-control" rows="8" id="diagnóstico" placeholder=""></textarea>
+                      </div>
+  
+                      <div class="mb-3">
+                        <label for="listado_materiales" class="form-label">Listado de materiales</label>
+                        <textarea class="form-control" rows="8" id="listado_materiales" placeholder=""></textarea>
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="imagen">Seleccionar imagen:</label>
+                        <input type="file" id="imagen" name="imagen">
+                      </div>
+  
+                      <div class="row">
+                          <div class="col-6">
+                              <div class="mb-3">
+                                  <div class="col-12">
+                                  <button type="submit" id="Agregar_Atencion" style="width: 100%" class="btn btn-primary">Agregar Atencion</button>
+                                  </div>
+                  
+                              </div>
+                          </div>
+                          <div class="col-6">
+                              <div class="mb-3">
+                              <div class="col-12">
+                                  <button type="reset" id="Limpiar" style="width: 100%" class="btn btn-success">Limpiar</button>
+                              </div>
+                              </div>
+                          </div>
+                      </div>  
+                    </div>
+                  
+                  </form>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" style="background-color: #13405a; color: white;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Publicaciónes en espera
+                </button>
+            </h2>
+            <div id="collapseTwo" style="background-color: #0b4161; color: white;" class="accordion-collapse collapse " data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <div class="col-3" >
+                        <div class="card" style="background-color: #182d38;  color: white; ">
+                                <div class="image"><img src="{% static 'img/auto1.jpg' %}" class="d-block w-100"  alt="..."></div>
+                            <div class="card-body" style="background-color: #143e57;">
+                                <p style="color :#2860fa;">
+                                <span class="title">
+                                    Jose fernadez
+                                </span>
+                                </p>
+                            
+                                <p class="desc">
+                                Fecha:  02/03/2023 <br>
+                                Diagnostico: Daño en la carroseria frontal a causa de un choque<br> 
+                                Listado de materiales: Repuesto de capo 
+                                </p>
+                            </div>
+                        </div>
+                   </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button" style="background-color: #13405a; color: white;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                    Publicación Rechazadas
+                </button>
+            </h2>
+            <div id="collapseThree" style="background-color: #0b4161; color: white;" class="accordion-collapse collapse " data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <div class="col-3" >
+                        <div class="card" style="background-color: #182d38;  color: white; ">
+                                <div class="image"><img src="{% static 'img/auto1.jpg' %}" class="d-block w-100"  alt="..."></div>
+                            <div class="card-body" style="background-color: #143e57;">
+                                <p style="color :#2860fa;">
+                                <span class="title">
+                                    Jose fernadez
+                                </span>
+                                </p>
+                            
+                                <p class="desc">
+                                Fecha:  02/03/2023 <br>
+                                Diagnostico: Daño en la carroseria frontal a causa de un choque<br> 
+                                Listado de materiales: Repuesto de capo 
+                                </p>
+                                <br>
+                                Motivo: Falta de informacion sobre el caso
+                             </div>
+                        </div>
+                   </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button" style="background-color: #13405a; color: white;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                   Mis Publicación
+                </button>
+            </h2>
+            <div id="collapseFour" style="background-color: #0b4161; color: white;" class="accordion-collapse collapse " data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <div class="col-3" >
+                        <div class="card" style="background-color: #182d38;  color: white; ">
+                                <div class="image"><img src="{% static 'img/auto1.jpg' %}" class="d-block w-100"  alt="..."></div>
+                            <div class="card-body" style="background-color: #143e57;">
+                                <p style="color :#2860fa;">
+                                <span class="title">
+                                    Jose fernadez
+                                </span>
+                                </p>
+                            
+                                <p class="desc">
+                                Fecha:  02/03/2023 <br>
+                                Diagnostico: Daño en la carroseria frontal a causa de un choque<br> 
+                                Listado de materiales: Repuesto de capo 
+                                </p>
+                             </div>
+                        </div>
+                   </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <br>    
+</div>
+{% endblock %}
+
+<script>
+    $(document).ready(function(){
+    
+      $("#Publicar_Atencion").submit(function(event){
+    
+        event.preventDefault();
+        var a = 6;
+    
+        if(!ValidarNombre_mecanico($("#nombre_mecanico").val())){
+    
+        alert("Nombre invalido");
+          a = a -1
+        }
+    
+        if(!ValidarApellido($("#Apellido").val())){
+    
+        alert("Apellido invalido");
+        a = a -1
+
+        }
+
+        if(!ValidarFecha($("#fecha").val())){
+
+        alert("fecha invalida");
+        a = a -1
+
+        }
+    
+        if(!ValidarDiagnóstico($("#diagnóstico").val())){
+    
+        alert("diagnóstico invalido");
+        a = a -1
+    
+        }
+    
+        if(!Validarlistado($("#listado_materiales").val())){
+    
+        alert("listado de materiales invalido");
+        a = a -1
+    
+        } 
+
+        if(!ValidarImagen($("#imagen").val())){
+
+            alert("imagen invalida");
+            a = a -1
+
+        }
+       
+    
+        if(a == 6){
+            alert("Usuario creado de manera exitosa");
+        }
+        
+    
+      });
+    
+    
+    
+    })
+    
+    </script>
+      
+
+

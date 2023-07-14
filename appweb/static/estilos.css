@@ -1,0 +1,17 @@
+body {
+	background-color: #14242c;
+	margin: 0;
+    color: white;
+}
+
+nav {
+	background-color: #182d38; ;
+	padding: 10px;
+}
+
+nav a {
+	color: white;
+	font-size: 18px;
+	margin-right: 20px;
+	text-decoration: none;
+}

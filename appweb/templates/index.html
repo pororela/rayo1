@@ -1,0 +1,206 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contenido %}
+<div class="col-12 " >
+
+  <br><br><br>
+
+</div>
+<div class="col-10" style="margin: auto;"><!--ajustar tamaño del carrusel-->
+
+  <div id="carouselExampleDark" class="carousel carousel-dark slide" >
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="10000">
+        <img src="{% static 'img/auto1.jpg' %}" class="d-block w-100" width="500" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <p class="fondo-oscuro"><a id="texto-negro" href="../html/infoAuto-1.html">mas informacion aqui</a></p>
+        </div>
+      </div>
+
+      <div class="carousel-item" data-bs-interval="2000">
+        <img src="{% static 'img/auto2.jpg' %}" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <p class="fondo-oscuro"><a id="texto-negro" href="../html/infoAuto-2.html">mas informacion aqui</a></p>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <img src="{% static 'img/auto3.jpg' %}" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <p class="fondo-oscuro"><a id="texto-negro" href="../html/infoAuto-3.html">mas informacion aqui</a></p>
+        </div>
+      </div>
+    </div>
+    
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+
+  </div>
+</div>
+<div class="col-12 " >
+
+<br><br><br>
+
+</div>
+<div class="col-6" id="info">
+<div class="card" style="background-color: #182d38;  color: white;">
+  <div class="card-header text-center">
+     Acerca de nosotros
+        </div>
+  <div class="card-body" style="background-color: #143e57;">
+    Somos una empresa destacada, que cuenta con un amplio personal de profesionales con diferentes especializaciones
+    en diferentes areas para satisfacer las distintas necesidades de nuestros clientes <br>
+    dandoles asi un servicio de confianza y seguridad.
+  </div>
+</div>
+</div>
+<div class="col-6" id="mantenciones">
+<div class="accordion" id="accordionExample">
+
+  <div class="accordion-item">
+      <h2 class="accordion-header">
+          <button class="accordion-button" style="background-color: #182d38; color: white;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+             Mis Mantenciones
+          </button>
+      </h2>
+      <div id="collapseFour" style="background-color: #0b4161; color: white;" class="accordion-collapse collapse " data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+              <div class="col-4" >
+                  <div class="card" style="background-color: #182d38;  color: white; ">
+                      <div class="image"><img src="{% static 'img/auto3.jpg' %}" class="d-block w-100"  alt="..."></div>
+                  <div class="card-body" style="background-color: #143e57;">
+                      <p style="color :#2860fa;">
+                      <span class="title">
+                          Felipe Pedreros
+                      </span>
+                      </p>
+                  
+                      <p class="desc">
+                          Fecha:  08/03/2023 <br>
+                          Diagnostico: Daño en la carroseria frontal a causa de un choque<br> 
+                          Listado de materiales: Repuesto de capo 
+                      </p>
+                </div>
+              </div>
+             </div>
+          </div>
+      </div>
+  </div>
+
+</div>
+</div>
+<div class="col-12 " >
+
+<br><br><br>
+
+</div>
+
+
+<div class="col-12">
+  {% for a in profesionales %}
+  <div class="card col-3" style="background-color: #182d38;  color: white; ">
+          <div class="image"><img src="{{a.foto.url}}" class="d-block w-100"  alt="..."></div>
+      <div class="card-body" style="background-color: #143e57;">
+          <p style="color :#2860fa;">
+          <span class="title">
+              {{a.nombre}} {{a.apellido}}
+          </span>
+          </p>
+          <p class="desc">
+              {{a.rut}}
+          </p>
+          <p class="desc">
+              {{a.edad}}
+          </p>
+          <p class="desc">
+              {{a.cargo}}
+          </p>
+
+          <a href="{% url 'saber_mas' a.nombre %}">saber mas</a>
+       </div>
+  </div>
+  <br>
+  {% endfor %}
+</div>
+</div>
+
+
+
+<div>
+<br><br><br>
+</div>
+<div id="contactanos">
+<div class="accordion" id="accordionExample">
+
+
+</div>
+</div>
+<div>
+<br><br><br>
+</div>
+
+{% endblock %}
+
+<script>
+  $(document).ready(function(){
+  
+    $("#contacto").submit(function(event){
+  
+      event.preventDefault();
+      var a = 4;
+  
+      if(!ValidarNombre($("#nombre").val())){
+  
+      alert("Nombre invalido");
+        a = a -1
+      }
+  
+      if(!ValidarApellido($("#Apellido").val())){
+  
+      alert("Apellido invalido");
+      a = a -1
+
+      }
+
+      if(!ValidarCorreo($("#correo").val())){
+
+      alert("correo invalida");
+      a = a -1
+
+      }
+  
+      if(!Validarmotivo($("#motivo").val())){
+  
+      alert("motivo invalido");
+      a = a -1
+  
+      }
+     
+  
+      if(a == 4){
+          alert("El mensaje fue envido de forma exitosa");
+      }
+      
+  
+    });
+  
+  
+  
+  })
+  
+  </script>
+
+

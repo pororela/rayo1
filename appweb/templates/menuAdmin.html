@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contenido %}
+
+
+<div class="col-12">
+    <br><br><br>
+</div>
+<div>
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button" style="background-color: #13405a; color: white;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Publicar atencion
+                </button>
+            </h2>
+            <div id="collapseOne" style="background-color: #0b4161; color: white;" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <div class="col-3" >
+                        <div class="card" style="background-color: #182d38;  color: white; ">
+                                <div class="image"><img src="{% static 'imgimg/auto1.jpg' %}" class="d-block w-100"  alt="..."></div>
+                            <div class="card-body" style="background-color: #143e57;">
+                                <p style="color :#2860fa;">
+                                <span class="title">
+                                    Jose fernadez
+                                </span>
+                                </p>
+                            
+                                <p class="desc">
+                                Fecha:  02/03/2023 <br>
+                                Diagnostico: Daño en la carroseria frontal a causa de un choque<br> 
+                                Listado de materiales: Repuesto de capo 
+                                </p>
+                                <br>
+                                <button type="submit" id="Aprobar"  style="background-color: green;color: white;">Aprobar</button>
+                                <a href="motivoRechazo.html"><button type="submit" id="Rechazar"  style="background-color: red;color: white;">Rechazar</button></a>
+                          </div>
+                        </div>
+                   </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" style="background-color: #13405a; color: white;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Crear Usuario
+                </button>
+            </h2>
+            <div id="collapseTwo" style="background-color: #0b4161; color: white;"class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <form class="row" action="#" enctype="application/x-www-form-urlencoded" method="POST" id="CrearUsuario"novalidate>
+                        <div class="row">
+                        <div class="mb-3; col-6">
+                            <label for="nombre" class="form-label">Nombre</label>
+                            <input type="text" class="form-control"  id="nombre" placeholder="">
+                        </div>
+                        <div class="mb-3; col-6">
+                            <label for="Apellido" class="form-label">Apellido</label>
+                            <input type="text" class="form-control"  id="Apellido" placeholder="">
+                        </div>
+            
+                        <div class="mb-3">
+                            <label for="correo" class="form-label">Correo</label>
+                            <input type="email" class="form-control"  id="correo" placeholder="">
+                        </div>
+    
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control"  id="password" placeholder="">
+                        </div>
+    
+                        <div class="mb-3">
+                            <label for="confirm_password" class="form-label">Confirm password</label>
+                            <input type="password" class="form-control"  id="confirm_password" placeholder="">
+                        </div>
+    
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="mb-3">
+                                    <div class="col-12">
+                                    <button type="submit" id="Registrarse" style="width: 100%" class="btn btn-primary">Registrarse</button>
+                                    </div>
+                    
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="mb-3">
+                                <div class="col-12">
+                                    <button type="reset" id="Limpiar" style="width: 100%" class="btn btn-success">Limpiar</button>
+                                </div>
+                                </div>
+                            </div>
+                        </div>  
+        
+                        </div>
+                  
+                  </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
+
+<script>
+    $(document).ready(function(){
+    
+      $("#CrearUsuario").submit(function(event){
+    
+        event.preventDefault();
+        var a = 5;
+    
+        if(!ValidarNombre($("#nombre").val())){
+    
+        alert("Nombre invalido");
+          a = a -1
+        }
+    
+        if(!ValidarApellido($("#Apellido").val())){
+    
+        alert("Apellido invalido");
+        a = a -1
+    
+        }
+    
+        if(!ValidarCorreo($("#correo").val())){
+    
+        alert("Nombre correo");
+        a = a -1
+    
+        }
+    
+        if(!ValidarPassword($("#password").val())){
+    
+        alert("Nombre password");
+        a = a -1
+    
+        }
+    
+        if(!ValidarConfirm_password($("#confirm_password").val(),$("#password").val() )){
+    
+        alert("Los password no coinciden");
+        a = a -1
+    
+        }
+        if(a == 5){
+            alert("Usuario creado de manera exitosa");
+        }
+        
+    
+      });
+    
+    
+    
+    })
+    
+    </script>
+      
+
+
+
